@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Search, Calculator, Sun, Moon } from 'lucide-react'
+import { Menu, X, Search, ChevronDown, Sun, Moon } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { useTheme } from '@/components/ThemeProvider'
 
@@ -20,20 +20,19 @@ export default function Header() {
   const { theme, toggle } = useTheme()
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-glass-border glass">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-11 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
         <Link href="/" className="flex items-center gap-2">
-          <span className="font-serif text-2xl font-semibold tracking-wide text-primary">KAMEN</span>
-          <span className="hidden text-xs text-muted sm:inline-block">натуральный камень</span>
+          <span className="text-[17px] font-semibold tracking-tight text-foreground">KAMEN</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center justify-center gap-6 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors duration-300 hover:text-cta ${
-                pathname.startsWith(link.href) ? 'text-cta' : 'text-primary'
+              className={`text-[12px] font-medium tracking-wide transition-colors duration-200 ${
+                pathname.startsWith(link.href) ? 'text-accent' : 'text-secondary hover:text-foreground'
               }`}
             >
               {link.label}
@@ -41,63 +40,33 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1">
-          <button
-            onClick={toggle}
-            className="rounded-full p-2 text-muted transition-colors duration-300 hover:text-cta hover:bg-cta/10"
-            aria-label={theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'}
-          >
-            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+        <div className="flex items-center gap-2">
+          <button onClick={toggle} className="rounded-full p-1.5 text-secondary transition-colors duration-200 hover:text-foreground" aria-label={theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'}>
+            {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
-          <a href="tel:+74951234567" className="hidden text-sm font-medium text-primary transition-colors duration-300 hover:text-cta lg:inline-block">
-            +7 (495) 123-45-67
-          </a>
-          <button className="rounded-full p-2 text-primary transition-colors duration-300 hover:bg-cta/10 hover:text-cta" aria-label="Поиск">
-            <Search className="h-5 w-5" />
-          </button>
-          <button
-            className="rounded-full p-2 text-primary transition-colors duration-300 hover:bg-cta/10 hover:text-cta md:hidden"
-            onClick={() => setOpen(!open)}
-            aria-label="Меню"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          <button className="rounded-full p-1.5 text-secondary transition-colors duration-200 hover:text-foreground md:hidden" onClick={() => setOpen(!open)} aria-label="Меню">
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="border-t border-glass-border glass md:hidden">
-          <nav className="flex flex-col space-y-3 px-4 py-4">
+        <div className="border-t border-border/60 bg-background/95 backdrop-blur-xl md:hidden">
+          <nav className="flex flex-col space-y-1 px-5 pb-4 pt-2">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={`py-2 text-sm font-medium transition-colors duration-300 hover:text-cta ${
-                  pathname.startsWith(link.href) ? 'text-cta' : 'text-primary'
-                }`}
-              >
+              <Link key={link.href} href={link.href} onClick={() => setOpen(false)}
+                className={`py-2 text-sm font-medium transition-colors duration-200 ${
+                  pathname.startsWith(link.href) ? 'text-accent' : 'text-secondary hover:text-foreground'
+                }`}>
                 {link.label}
               </Link>
             ))}
-            <a href="tel:+74951234567" className="py-2 text-sm font-medium text-primary">+7 (495) 123-45-67</a>
-            <div className="flex items-center gap-3 py-2">
-              <button
-                onClick={toggle}
-                className="rounded-full p-2 text-muted transition-colors duration-300 hover:text-cta hover:bg-cta/10"
-              >
-                {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            <div className="flex items-center gap-3 pt-2">
+              <button onClick={toggle} className="rounded-full p-1.5 text-secondary transition-colors duration-200 hover:text-foreground">
+                {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </button>
-              <span className="text-xs text-muted">{theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'}</span>
+              <span className="text-xs text-secondary">{theme === 'dark' ? 'Светлая' : 'Тёмная'}</span>
             </div>
-            <Link
-              href="/calculator"
-              onClick={() => setOpen(false)}
-              className="gold-glow inline-flex items-center justify-center gap-2 rounded-md bg-cta px-4 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-primary"
-            >
-              <Calculator className="h-4 w-4" />
-              Получить расчёт
-            </Link>
           </nav>
         </div>
       )}

@@ -13,11 +13,9 @@ export default function ServiceDetailPage() {
 
   if (!service) {
     return (
-      <div className="mx-auto max-w-7xl px-4 py-20 text-center">
-        <h1 className="font-serif text-3xl text-primary">Услуга не найдена</h1>
-        <Link href="/services" className="mt-4 inline-flex items-center gap-2 text-cta transition-colors duration-300 hover:text-primary">
-          Все услуги <ArrowRight className="h-4 w-4" />
-        </Link>
+      <div className="mx-auto max-w-7xl px-5 py-20 text-center sm:px-8">
+        <h1 className="text-[28px] font-semibold text-foreground">Услуга не найдена</h1>
+        <Link href="/services" className="apple-link mt-4 inline-flex items-center gap-2">Все услуги <ArrowRight className="h-4 w-4" /></Link>
       </div>
     )
   }
@@ -25,28 +23,20 @@ export default function ServiceDetailPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: 'Услуги', href: '/services' }, { label: service.title }]} />
-      <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-2">
+      <div className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:px-12">
+        <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <div className="glass mb-6 inline-block rounded-full px-4 py-1.5">
-              <span className="text-xs font-medium text-cta">УСЛУГА</span>
-            </div>
-            <h1 className="font-serif text-3xl font-light text-primary sm:text-4xl">{service.title}</h1>
-            <p className="mt-4 text-sm leading-relaxed text-muted">{service.description}</p>
-            <p className="mt-6 text-lg font-medium text-primary">
-              Цена: <span className="text-cta">от {service.priceFrom} ₽/м²</span>
-            </p>
-            <p className="mt-2 text-xs text-muted">Точная стоимость рассчитывается индивидуально</p>
-            <div className="mt-8 space-y-4">
-              <button className="gold-glow w-full rounded-md bg-cta px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-primary">
-                Заказать услугу
-              </button>
-              <button className="w-full rounded-md border border-border px-6 py-3 text-sm font-medium text-primary transition-all duration-300 hover:border-cta hover:text-cta">
-                Получить консультацию
-              </button>
+            <span className="apple-chip mb-4 inline-block">УСЛУГА</span>
+            <h1 className="text-[40px] font-semibold leading-tight tracking-tight text-foreground">{service.title}</h1>
+            <p className="mt-4 text-[17px] leading-relaxed text-secondary">{service.description}</p>
+            <p className="mt-6 text-lg font-medium text-foreground">Цена: <span className="text-accent">от {service.priceFrom} ₽/м²</span></p>
+            <p className="mt-2 text-xs text-secondary">Точная стоимость рассчитывается индивидуально</p>
+            <div className="mt-8 space-y-3">
+              <button className="apple-button apple-button-primary w-full">Заказать услугу</button>
+              <button className="apple-button apple-button-secondary w-full">Получить консультацию</button>
             </div>
           </div>
-          <div className="h-80 overflow-hidden rounded-lg bg-gray-100 lg:h-auto">
+          <div className="h-80 overflow-hidden rounded-2xl bg-gray-50 lg:h-auto">
             <img src={service.image} alt={service.title} className="h-full w-full object-cover" />
           </div>
         </div>

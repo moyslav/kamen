@@ -1,24 +1,17 @@
 import Link from 'next/link'
 
-interface BreadcrumbItem {
-  label: string
-  href?: string
-}
+interface Item { label: string; href?: string }
 
-export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+export default function Breadcrumbs({ items }: { items: Item[] }) {
   return (
-    <nav className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8" aria-label="Хлебные крошки">
-      <ol className="flex flex-wrap items-center gap-2 text-sm text-muted">
-        <li>
-          <Link href="/" className="transition-colors duration-300 hover:text-cta">Главная</Link>
-        </li>
+    <nav className="mx-auto max-w-7xl px-5 py-3 sm:px-8 lg:px-12" aria-label="Breadcrumb">
+      <ol className="flex flex-wrap items-center gap-1.5 text-xs text-secondary">
+        <li><Link href="/" className="transition-colors duration-200 hover:text-accent">Главная</Link></li>
         {items.map((item, i) => (
-          <li key={i} className="flex items-center gap-2">
+          <li key={i} className="flex items-center gap-1.5">
             <span className="text-border">/</span>
             {item.href ? (
-              <Link href={item.href} className="transition-colors duration-300 hover:text-cta">
-                {item.label}
-              </Link>
+              <Link href={item.href} className="transition-colors duration-200 hover:text-accent">{item.label}</Link>
             ) : (
               <span className="text-foreground">{item.label}</span>
             )}

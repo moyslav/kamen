@@ -15,9 +15,9 @@ export default function CategoryPage() {
 
   if (!category) {
     return (
-      <div className="mx-auto max-w-7xl px-4 py-20 text-center">
-        <h1 className="font-serif text-3xl text-primary">Категория не найдена</h1>
-        <Link href="/catalog" className="mt-4 inline-flex items-center gap-2 text-cta transition-colors duration-300 hover:text-primary">
+      <div className="mx-auto max-w-7xl px-5 py-20 text-center sm:px-8">
+        <h1 className="text-[28px] font-semibold text-foreground">Категория не найдена</h1>
+        <Link href="/catalog" className="apple-link mt-4 inline-flex items-center gap-2">
           Вернуться в каталог <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
@@ -27,18 +27,16 @@ export default function CategoryPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: 'Каталог', href: '/catalog' }, { label: category.name }]} />
-      <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="mb-10">
-          <div className="glass mb-4 inline-block rounded-full px-4 py-1.5">
-            <span className="text-xs font-medium text-cta">{category.name.toUpperCase()}</span>
-          </div>
-          <h1 className="font-serif text-3xl font-light text-primary sm:text-4xl">{category.name}</h1>
-          <p className="mt-3 max-w-2xl text-sm text-muted">{category.description}</p>
+      <div className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:px-12">
+        <div className="mb-12">
+          <span className="apple-chip mb-3 inline-block">{category.name.toUpperCase()}</span>
+          <h1 className="apple-section-title">{category.name}</h1>
+          <p className="apple-section-subtitle mt-2">{category.description}</p>
         </div>
         {categoryProducts.length === 0 ? (
-          <p className="text-muted">В этой категории пока нет товаров.</p>
+          <p className="text-secondary">В этой категории пока нет товаров.</p>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {categoryProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
