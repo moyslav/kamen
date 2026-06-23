@@ -41,7 +41,7 @@ export default function ProjectsPage() {
           </div>
           <div className="lg:col-span-2">
             <div className="relative h-96 overflow-hidden rounded-lg bg-gray-100 sm:h-[500px]">
-              <img src="/api/illustration/product" alt={projects[active].title} className="h-full w-full object-cover" />
+              <img src="https://images.pexels.com/photos/1974508/pexels-photo-1974508.jpeg?auto=compress&cs=tinysrgb&w=800" alt={projects[active].title} className="h-full w-full object-cover" />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                 <p className="text-sm text-white/80">{projects[active].title} • {projects[active].year}</p>
               </div>
