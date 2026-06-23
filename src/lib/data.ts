@@ -1,20 +1,20 @@
 import type { Product, Category, Service, Advantage, Review } from '@/types'
 
 export const categories: Category[] = [
-  { slug: 'mramor', name: 'Мрамор', description: 'Классический натуральный камень для интерьеров', image: '/images/categories/marble.jpg' },
-  { slug: 'granit', name: 'Гранит', description: 'Прочный камень для фасадов и полов', image: '/images/categories/granite.jpg' },
-  { slug: 'kvarcit', name: 'Кварцит', description: 'Твёрдый камень с уникальным рисунком', image: '/images/categories/quartzite.jpg' },
-  { slug: 'oniks', name: 'Оникс', description: 'Полупрозрачный камень с подсветкой', image: '/images/categories/onyx.jpg' },
-  { slug: 'travertin', name: 'Травертин', description: 'По́ристый камень для тёплых тонов', image: '/images/categories/travertine.jpg' },
-  { slug: 'iskusstvennyy-kamen', name: 'Искусственный камень', description: 'Кварцевый агломерат и керамогранит', image: '/images/categories/artificial.jpg' },
+  { slug: 'mramor', name: 'Мрамор', description: 'Классический натуральный камень для интерьеров', image: '/images/categories/marble.svg' },
+  { slug: 'granit', name: 'Гранит', description: 'Прочный камень для фасадов и полов', image: '/images/categories/granite.svg' },
+  { slug: 'kvarcit', name: 'Кварцит', description: 'Твёрдый камень с уникальным рисунком', image: '/images/categories/quartzite.svg' },
+  { slug: 'oniks', name: 'Оникс', description: 'Полупрозрачный камень с подсветкой', image: '/images/categories/onyx.svg' },
+  { slug: 'travertin', name: 'Травертин', description: 'По́ристый камень для тёплых тонов', image: '/images/categories/travertine.svg' },
+  { slug: 'iskusstvennyy-kamen', name: 'Искусственный камень', description: 'Кварцевый агломерат и керамогранит', image: '/images/categories/artificial.svg' },
 ]
 
 const productImages = (base: string) => [
-  `/images/products/${base}-1.jpg`,
-  `/images/products/${base}-2.jpg`,
-  `/images/products/${base}-3.jpg`,
-  `/images/products/${base}-4.jpg`,
-  `/images/products/${base}-5.jpg`,
+  `/images/products/${base}-1.svg`,
+  `/images/products/${base}-2.svg`,
+  `/images/products/${base}-3.svg`,
+  `/images/products/${base}-4.svg`,
+  `/images/products/${base}-5.svg`,
 ]
 
 export const products: Product[] = [
@@ -102,11 +102,11 @@ export const products: Product[] = [
 ]
 
 export const services: Service[] = [
-  { slug: 'rezka', title: 'Резка камня', description: 'Гидроабразивная резка любой сложности. Точность до ±1 мм.', priceFrom: '1 500', image: '/images/services/cutting.jpg' },
-  { slug: 'polirovka', title: 'Полировка камня', description: 'Восстановление блеска и обработка кромки любой сложности.', priceFrom: '1 200', image: '/images/services/polishing.jpg' },
-  { slug: 'montazh', title: 'Монтаж камня', description: 'Профессиональная укладка с гарантией до 3 лет.', priceFrom: '3 500', image: '/images/services/installation.jpg' },
-  { slug: 'izgotovlenie-izdeliy', title: 'Изготовление изделий', description: 'Столешницы, подоконники, барные стойки, ступени — под заказ.', priceFrom: '5 000', image: '/images/services/fabrication.jpg' },
-  { slug: 'dostavka', title: 'Доставка камня', description: 'По Москве и всей России. Собственный транспорт до 300 км от МКАД.', priceFrom: '2 000', image: '/images/services/delivery.jpg' },
+  { slug: 'rezka', title: 'Резка камня', description: 'Гидроабразивная резка любой сложности. Точность до ±1 мм.', priceFrom: '1 500', image: '/images/services/cutting.svg' },
+  { slug: 'polirovka', title: 'Полировка камня', description: 'Восстановление блеска и обработка кромки любой сложности.', priceFrom: '1 200', image: '/images/services/polishing.svg' },
+  { slug: 'montazh', title: 'Монтаж камня', description: 'Профессиональная укладка с гарантией до 3 лет.', priceFrom: '3 500', image: '/images/services/installation.svg' },
+  { slug: 'izgotovlenie-izdeliy', title: 'Изготовление изделий', description: 'Столешницы, подоконники, барные стойки, ступени — под заказ.', priceFrom: '5 000', image: '/images/services/fabrication.svg' },
+  { slug: 'dostavka', title: 'Доставка камня', description: 'По Москве и всей России. Собственный транспорт до 300 км от МКАД.', priceFrom: '2 000', image: '/images/services/delivery.svg' },
 ]
 
 export const advantages: Advantage[] = [
