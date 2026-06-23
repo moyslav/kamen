@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KAMEN — Натуральный камень для интерьеров и экстерьеров
 
-## Getting Started
+Современный сайт для продажи натурального и искусственного камня (мрамор, гранит, кварцит, оникс, травертин). Целевая аудитория — дизайнеры интерьеров, архитекторы, строительные компании и частные заказчики.
 
-First, run the development server:
+## 🚀 Технологии
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| Слой | Технология |
+|---|---|
+| **Framework** | Next.js 16 (App Router) |
+| **Язык** | TypeScript 5 |
+| **Стилизация** | Tailwind CSS v4 |
+| **Иконки** | lucide-react |
+| **Шрифты** | Geist (основной), Cormorant Garamond (заголовки) |
+
+## 📁 Структура проекта
+
+```
+src/
+├── app/                          # Маршруты Next.js App Router
+│   ├── layout.tsx                # Root layout (Header, Footer, SEO-мета)
+│   ├── page.tsx                  # Главная страница
+│   ├── HomeClient.tsx            # Клиентский компонент главной
+│   ├── globals.css               # Tailwind + кастомная цветовая схема
+│   ├── catalog/                  # Каталог (список + фильтр по категории)
+│   ├── product/[slug]/           # Карточка товара
+│   ├── calculator/               # Калькулятор стоимости
+│   ├── services/                 # Услуги
+│   ├── contacts/                 # Контакты
+│   ├── about/                    # О компании
+│   └── projects/                 # Реализованные проекты
+├── components/                   # Переиспользуемые компоненты
+│   ├── Header.tsx                # Шапка (sticky, мобильное меню)
+│   ├── Footer.tsx                # Подвал (4 колонки, соцсети, реквизиты)
+│   ├── CookieBanner.tsx          # Cookie-баннер (152-ФЗ)
+│   ├── Breadcrumbs.tsx           # Хлебные крошки
+│   └── ProductCard.tsx           # Карточка товара
+├── lib/
+│   └── data.ts                   # Мок-данные (10 товаров, категорий, услуг, отзывов)
+└── types/
+    └── index.ts                  # TypeScript-типы
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧭 Страницы
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Маршрут | Описание |
+|---|---|
+| `/` | Главная: Hero, преимущества, категории, хиты продаж, о компании, отзывы, форма заявки |
+| `/catalog` | Каталог с фильтрами (тип камня, сортировка, пагинация) |
+| `/catalog/[category]` | Страница категории |
+| `/product/[slug]` | Карточка товара (галерея, характеристики, цены, похожие) |
+| `/calculator` | Пошаговый калькулятор стоимости (5 шагов) |
+| `/services` | Услуги |
+| `/services/[slug]` | Детальная страница услуги |
+| `/contacts` | Контакты, карта, реквизиты, форма обратной связи |
+| `/about` | О компании (цифры, ценности) |
+| `/projects` | Галерея реализованных проектов |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Цветовая схема
 
-## Learn More
+- Фон: `#FAFAFA` (тёплый белый)
+- Бренд-акцент: `#2C2C2C` (антрацит)
+- Акцент: `#C9A96E` (шампань / золото)
+- Текст: `#1A1A1A`
 
-To learn more about Next.js, take a look at the following resources:
+## 🚦 Запуск
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Установка зависимостей
+npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Режим разработки
+npm run dev
 
-## Deploy on Vercel
+# Production-сборка
+npm run build
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+По умолчанию сервер запускается на `http://localhost:3000`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 Проверка
+
+```bash
+# Сборка без ошибок
+npm run build
+```
+
+## 🔌 Интеграции (plan)
+
+- amoCRM / Bitrix24 — лиды из форм
+- Яндекс.Метрика + Google Analytics 4
+- Cloudinary / Imgix — оптимизация изображений
+- Carrot Quest / Jivo — онлайн-чат
+- Telegram Bot — уведомления о заявках
+- ЮKassa / Т-Банк Касса — приём платежей
