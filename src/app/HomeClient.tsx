@@ -179,7 +179,7 @@ export default function HomeClient() {
           </div>
           <div className="lg:col-span-2">
             <div className="relative h-80 overflow-hidden rounded-lg bg-gray-100 sm:h-96 lg:h-full">
-              <img src="https://picsum.photos/id/22/800/600" alt="Проект" className="h-full w-full object-cover" />
+              <img src="/api/illustration/fabrication" alt="Проект" className="h-full w-full object-cover" />
               {reviews[activeReview] && (
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                   <p className="text-sm text-white/80">{reviews[activeReview].project}</p>

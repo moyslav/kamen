@@ -1,29 +1,29 @@
 import type { Product, Category, Service, Advantage, Review } from '@/types'
 
-const PICSUM = 'https://picsum.photos/id'
+const ILLUSTRATION = '/api/illustration'
 
 export const categories: Category[] = [
-  { slug: 'mramor', name: 'Мрамор', description: 'Классический натуральный камень для интерьеров', image: `${PICSUM}/15/800/800` },
-  { slug: 'granit', name: 'Гранит', description: 'Прочный камень для фасадов и полов', image: `${PICSUM}/20/800/800` },
-  { slug: 'kvarcit', name: 'Кварцит', description: 'Твёрдый камень с уникальным рисунком', image: `${PICSUM}/25/800/800` },
-  { slug: 'oniks', name: 'Оникс', description: 'Полупрозрачный камень с подсветкой', image: `${PICSUM}/30/800/800` },
-  { slug: 'travertin', name: 'Травертин', description: 'По́ристый камень для тёплых тонов', image: `${PICSUM}/36/800/800` },
-  { slug: 'iskusstvennyy-kamen', name: 'Искусственный камень', description: 'Кварцевый агломерат и керамогранит', image: `${PICSUM}/42/800/800` },
+  { slug: 'mramor', name: 'Мрамор', description: 'Классический натуральный камень для интерьеров', image: `${ILLUSTRATION}/marble` },
+  { slug: 'granit', name: 'Гранит', description: 'Прочный камень для фасадов и полов', image: `${ILLUSTRATION}/granite` },
+  { slug: 'kvarcit', name: 'Кварцит', description: 'Твёрдый камень с уникальным рисунком', image: `${ILLUSTRATION}/quartzite` },
+  { slug: 'oniks', name: 'Оникс', description: 'Полупрозрачный камень с подсветкой', image: `${ILLUSTRATION}/onyx` },
+  { slug: 'travertin', name: 'Травертин', description: 'По́ристый камень для тёплых тонов', image: `${ILLUSTRATION}/travertine` },
+  { slug: 'iskusstvennyy-kamen', name: 'Искусственный камень', description: 'Кварцевый агломерат и керамогранит', image: `${ILLUSTRATION}/artificial` },
 ]
 
-const productImages = (startId: number) => [
-  `${PICSUM}/${startId}/800/800`,
-  `${PICSUM}/${startId + 1}/800/800`,
-  `${PICSUM}/${startId + 2}/800/800`,
-  `${PICSUM}/${startId + 3}/800/800`,
-  `${PICSUM}/${startId + 4}/800/800`,
+const productImages = (_base: string) => [
+  `${ILLUSTRATION}/product`,
+  `${ILLUSTRATION}/product`,
+  `${ILLUSTRATION}/product`,
+  `${ILLUSTRATION}/product`,
+  `${ILLUSTRATION}/product`,
 ]
 
 export const products: Product[] = [
   {
     id: '1', slug: 'calacatta-mramor',
     name: 'Мрамор Calacatta Gold', category: 'Мрамор', categorySlug: 'mramor',
-    images: productImages(50), price: 'от 12 000 ₽/м²',
+    images: productImages('calacatta'), price: 'от 12 000 ₽/м²',
     description: 'Итальянский мрамор премиум-класса с золотистыми прожилками на белом фоне.',
     inStock: true, thickness: ['20 мм', '30 мм'], colors: ['Белый', 'Золотой'],
     country: 'Италия', finish: ['Полированная', 'Матовая'],
@@ -32,7 +32,7 @@ export const products: Product[] = [
   {
     id: '2', slug: 'nero-marquina',
     name: 'Мрамор Nero Marquina', category: 'Мрамор', categorySlug: 'mramor',
-    images: productImages(55), price: 'от 9 500 ₽/м²',
+    images: productImages('nero'), price: 'от 9 500 ₽/м²',
     description: 'Чёрный испанский мрамор с белыми прожилками. Эффектный и контрастный.',
     inStock: true, thickness: ['20 мм', '30 мм'], colors: ['Чёрный', 'Белый'],
     country: 'Испания', finish: ['Полированная'], specifications: { Прочность: '120 МПа', Водопоглощение: '0.3%', Морозостойкость: 'F100' },
@@ -40,7 +40,7 @@ export const products: Product[] = [
   {
     id: '3', slug: 'emerald-pearl',
     name: 'Гранит Emerald Pearl', category: 'Гранит', categorySlug: 'granit',
-    images: productImages(60), price: 'от 6 500 ₽/м²',
+    images: productImages('emerald'), price: 'от 6 500 ₽/м²',
     description: 'Норвежский гранит с зелёно-чёрной текстурой. Идеален для фасадов.',
     inStock: true, thickness: ['20 мм', '30 мм', '50 мм'], colors: ['Зелёный', 'Чёрный'],
     country: 'Норвегия', finish: ['Полированная', 'Термо'], specifications: { Прочность: '220 МПа', Водопоглощение: '0.1%', Морозостойкость: 'F300' },
@@ -48,7 +48,7 @@ export const products: Product[] = [
   {
     id: '4', slug: 'bianco-carrara',
     name: 'Мрамор Bianco Carrara', category: 'Мрамор', categorySlug: 'mramor',
-    images: productImages(65), price: 'от 7 500 ₽/м²',
+    images: productImages('carrara'), price: 'от 7 500 ₽/м²',
     description: 'Классический белый мрамор из Каррары. Серые прожилки, тёплый оттенок.',
     inStock: true, thickness: ['20 мм', '30 мм'], colors: ['Белый', 'Серый'],
     country: 'Италия', finish: ['Полированная', 'Лощёная'], specifications: { Прочность: '130 МПа', Водопоглощение: '0.2%', Морозостойкость: 'F100' },
@@ -56,7 +56,7 @@ export const products: Product[] = [
   {
     id: '5', slug: 'taj-mahal',
     name: 'Кварцит Taj Mahal', category: 'Кварцит', categorySlug: 'kvarcit',
-    images: productImages(70), price: 'от 18 000 ₽/м²',
+    images: productImages('taj-mahal'), price: 'от 18 000 ₽/м²',
     description: 'Бразильский кварцит с кремово-серым рисунком. Очень твёрдый.',
     inStock: false, thickness: ['20 мм', '30 мм'], colors: ['Кремовый', 'Серый'],
     country: 'Бразилия', finish: ['Полированная'], specifications: { Прочность: '380 МПа', Водопоглощение: '0.05%', Морозостойкость: 'F200' },
@@ -64,7 +64,7 @@ export const products: Product[] = [
   {
     id: '6', slug: 'verde-guatemala',
     name: 'Мрамор Verde Guatemala', category: 'Мрамор', categorySlug: 'mramor',
-    images: productImages(75), price: 'от 11 000 ₽/м²',
+    images: productImages('verde'), price: 'от 11 000 ₽/м²',
     description: 'Гватемальский зелёный мрамор с белыми прожилками. Редкий цвет.',
     inStock: true, thickness: ['20 мм', '30 мм'], colors: ['Зелёный', 'Белый'],
     country: 'Гватемала', finish: ['Полированная', 'Матовая'], specifications: { Прочность: '135 МПа', Водопоглощение: '0.25%', Морозостойкость: 'F150' },
@@ -72,7 +72,7 @@ export const products: Product[] = [
   {
     id: '7', slug: 'blue-pearl',
     name: 'Гранит Blue Pearl', category: 'Гранит', categorySlug: 'granit',
-    images: productImages(80), price: 'от 8 500 ₽/м²',
+    images: productImages('blue-pearl'), price: 'от 8 500 ₽/м²',
     description: 'Норвежский гранит с голубым мерцанием. Уникальная текстура.',
     inStock: true, thickness: ['20 мм', '30 мм'], colors: ['Синий', 'Серый'],
     country: 'Норвегия', finish: ['Полированная', 'Термо'], specifications: { Прочность: '240 МПа', Водопоглощение: '0.1%', Морозостойкость: 'F300' },
@@ -80,7 +80,7 @@ export const products: Product[] = [
   {
     id: '8', slug: 'crema-marfil',
     name: 'Мрамор Crema Marfil', category: 'Мрамор', categorySlug: 'mramor',
-    images: productImages(85), price: 'от 6 500 ₽/м²',
+    images: productImages('crema'), price: 'от 6 500 ₽/м²',
     description: 'Испанский кремовый мрамор. Тёплый оттенок, однородная структура.',
     inStock: true, thickness: ['20 мм', '30 мм'], colors: ['Бежевый', 'Кремовый'],
     country: 'Испания', finish: ['Полированная', 'Лощёная'], specifications: { Прочность: '110 МПа', Водопоглощение: '0.3%', Морозостойкость: 'F100' },
@@ -88,7 +88,7 @@ export const products: Product[] = [
   {
     id: '9', slug: 'oniks-avokado',
     name: 'Оникс Avocado', category: 'Оникс', categorySlug: 'oniks',
-    images: productImages(90), price: 'от 25 000 ₽/м²',
+    images: productImages('oniks-avokado'), price: 'от 25 000 ₽/м²',
     description: 'Зелёный оникс с эффектом просвечивания. Для подсветки.',
     inStock: false, thickness: ['20 мм'], colors: ['Зелёный', 'Золотой'],
     country: 'Иран', finish: ['Полированная'], specifications: { Прочность: '80 МПа', Водопоглощение: '0.4%', Морозостойкость: 'F50' },
@@ -96,7 +96,7 @@ export const products: Product[] = [
   {
     id: '10', slug: 'giallo-orio',
     name: 'Гранит Giallo Oriо', category: 'Гранит', categorySlug: 'granit',
-    images: productImages(0), price: 'от 7 000 ₽/м²',
+    images: productImages('giallo'), price: 'от 7 000 ₽/м²',
     description: 'Бразильский жёлто-золотистый гранит с тёмными вкраплениями.',
     inStock: true, thickness: ['20 мм', '30 мм'], colors: ['Жёлтый', 'Золотой'],
     country: 'Бразилия', finish: ['Полированная'], specifications: { Прочность: '200 МПа', Водопоглощение: '0.15%', Морозостойкость: 'F200' },
@@ -104,11 +104,11 @@ export const products: Product[] = [
 ]
 
 export const services: Service[] = [
-  { slug: 'rezka', title: 'Резка камня', description: 'Гидроабразивная резка любой сложности. Точность до ±1 мм.', priceFrom: '1 500', image: `${PICSUM}/10/800/800` },
-  { slug: 'polirovka', title: 'Полировка камня', description: 'Восстановление блеска и обработка кромки любой сложности.', priceFrom: '1 200', image: `${PICSUM}/16/800/800` },
-  { slug: 'montazh', title: 'Монтаж камня', description: 'Профессиональная укладка с гарантией до 3 лет.', priceFrom: '3 500', image: `${PICSUM}/26/800/800` },
-  { slug: 'izgotovlenie-izdeliy', title: 'Изготовление изделий', description: 'Столешницы, подоконники, барные стойки, ступени — под заказ.', priceFrom: '5 000', image: `${PICSUM}/44/800/800` },
-  { slug: 'dostavka', title: 'Доставка камня', description: 'По Москве и всей России. Собственный транспорт до 300 км от МКАД.', priceFrom: '2 000', image: `${PICSUM}/48/800/800` },
+  { slug: 'rezka', title: 'Резка камня', description: 'Гидроабразивная резка любой сложности. Точность до ±1 мм.', priceFrom: '1 500', image: `${ILLUSTRATION}/cutting` },
+  { slug: 'polirovka', title: 'Полировка камня', description: 'Восстановление блеска и обработка кромки любой сложности.', priceFrom: '1 200', image: `${ILLUSTRATION}/polishing` },
+  { slug: 'montazh', title: 'Монтаж камня', description: 'Профессиональная укладка с гарантией до 3 лет.', priceFrom: '3 500', image: `${ILLUSTRATION}/tools` },
+  { slug: 'izgotovlenie-izdeliy', title: 'Изготовление изделий', description: 'Столешницы, подоконники, барные стойки, ступени — под заказ.', priceFrom: '5 000', image: `${ILLUSTRATION}/fabrication` },
+  { slug: 'dostavka', title: 'Доставка камня', description: 'По Москве и всей России. Собственный транспорт до 300 км от МКАД.', priceFrom: '2 000', image: `${ILLUSTRATION}/truck` },
 ]
 
 export const advantages: Advantage[] = [
