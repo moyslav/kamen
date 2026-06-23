@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "Cormorant Garamond";
   src: url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap");
@@ -15,6 +17,21 @@
   --muted: #6b6b6b;
   --border: #e5e5e5;
   --card-bg: #ffffff;
+  --subtle: #f3f2ef;
+  --input-bg: #ffffff;
+}
+
+.dark {
+  --background: #121212;
+  --foreground: #e8e6e3;
+  --brand-dark: #e0ddd8;
+  --brand-gold: #c9a96e;
+  --brand-gray: #a09080;
+  --muted: #9a9a9a;
+  --border: #2a2a2a;
+  --card-bg: #1a1a1a;
+  --subtle: #1a1a1a;
+  --input-bg: #222222;
 }
 
 @theme inline {
@@ -26,6 +43,8 @@
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-card: var(--card-bg);
+  --color-subtle: var(--subtle);
+  --color-input-bg: var(--input-bg);
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-geist-sans);
 }
@@ -38,6 +57,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 @layer utilities {

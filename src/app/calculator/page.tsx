@@ -97,7 +97,7 @@ export default function CalculatorPage() {
                     type="number" step="0.01" min="0"
                     value={form.width}
                     onChange={(e) => update('width', e.target.value)}
-                    className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none"
+                    className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none dark:bg-input-bg"
                     placeholder="Например: 0.6"
                   />
                 </div>
@@ -107,7 +107,7 @@ export default function CalculatorPage() {
                     type="number" step="0.01" min="0"
                     value={form.length}
                     onChange={(e) => update('length', e.target.value)}
-                    className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none"
+                    className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none dark:bg-input-bg"
                     placeholder="Например: 2.4"
                   />
                 </div>
@@ -163,7 +163,7 @@ export default function CalculatorPage() {
                   <select
                     value={form.mountingSurface}
                     onChange={(e) => update('mountingSurface', e.target.value)}
-                    className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none"
+                    className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none dark:bg-input-bg"
                   >
                     {['Пол', 'Стена', 'Фасад', 'Ступени'].map((s) => (
                       <option key={s} value={s}>{s}</option>
@@ -183,14 +183,14 @@ export default function CalculatorPage() {
                   type="text"
                   value={form.city}
                   onChange={(e) => update('city', e.target.value)}
-                  className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none"
+                  className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none dark:bg-input-bg"
                   placeholder="Москва"
                 />
               </div>
               <div className="flex gap-2">
-                <span className="rounded-md bg-gray-100 px-3 py-1.5 text-xs text-muted">Самовывоз</span>
-                <span className="rounded-md bg-gray-100 px-3 py-1.5 text-xs text-muted">Доставка по Москве</span>
-                <span className="rounded-md bg-gray-100 px-3 py-1.5 text-xs text-muted">Доставка по РФ</span>
+                <span className="rounded-md bg-subtle px-3 py-1.5 text-xs text-muted">Самовывоз</span>
+                <span className="rounded-md bg-subtle px-3 py-1.5 text-xs text-muted">Доставка по Москве</span>
+                <span className="rounded-md bg-subtle px-3 py-1.5 text-xs text-muted">Доставка по РФ</span>
               </div>
             </div>
           )}
@@ -198,7 +198,7 @@ export default function CalculatorPage() {
           {step === 5 && (
             <div className="space-y-6">
               <h2 className="font-serif text-xl text-brand-dark">Итоговая стоимость</h2>
-              <div className="rounded-lg bg-gray-50 p-6 space-y-3">
+              <div className="rounded-lg bg-subtle p-6 space-y-3">
                 {[
                   { label: 'Камень', value: 'от 6 500 до 25 000 ₽/м²' },
                   { label: 'Площадь', value: form.width && form.length ? `${(parseFloat(form.width) * parseFloat(form.length)).toFixed(2)} м²` : '—' },

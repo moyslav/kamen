@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Phone, Search, Calculator } from 'lucide-react'
+import { Menu, X, Phone, Search, Calculator, Sun, Moon } from 'lucide-react'
 import { usePathname } from 'next/navigation'
+import { useTheme } from '@/components/ThemeProvider'
 
 const navLinks = [
   { href: '/catalog', label: 'Каталог' },
@@ -16,6 +17,7 @@ const navLinks = [
 export default function Header() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
+  const { theme, toggle } = useTheme()
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -39,7 +41,14 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggle}
+            className="rounded-full p-2 text-muted hover:text-brand-gold hover:bg-brand-gold/10 transition-colors"
+            aria-label={theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'}
+          >
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </button>
           <a href="tel:+74951234567" className="hidden text-sm font-medium text-brand-dark hover:text-brand-gold lg:inline-block">
             +7 (495) 123-45-67
           </a>
@@ -74,6 +83,16 @@ export default function Header() {
             <a href="tel:+74951234567" className="text-sm font-medium text-brand-dark py-2">
               +7 (495) 123-45-67
             </a>
+            <div className="flex items-center gap-3 py-2">
+              <button
+                onClick={toggle}
+                className="rounded-full p-2 text-muted hover:text-brand-gold hover:bg-brand-gold/10 transition-colors"
+                aria-label={theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'}
+              >
+                {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
+              <span className="text-xs text-muted">{theme === 'dark' ? 'Светлая тема' : 'Тёмная тема'}</span>
+            </div>
             <Link
               href="/calculator"
               onClick={() => setOpen(false)}

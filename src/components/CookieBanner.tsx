@@ -19,7 +19,7 @@ export default function CookieBanner() {
   if (!visible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-white p-4 shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-card p-4 shadow-lg">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
         <p className="text-xs text-muted leading-relaxed">
           Этот сайт использует cookies для аналитики и персонализации. Продолжая использовать сайт,
@@ -37,7 +37,7 @@ export default function CookieBanner() {
           </button>
           <button
             onClick={() => setVisible(false)}
-            className="flex items-center gap-1 whitespace-nowrap rounded-md border border-border px-4 py-2 text-xs font-medium text-muted transition-colors hover:bg-gray-50"
+            className="flex items-center gap-1 whitespace-nowrap rounded-md border border-border px-4 py-2 text-xs font-medium text-muted transition-colors hover:bg-subtle"
           >
             <X className="h-3 w-3" />
             Закрыть

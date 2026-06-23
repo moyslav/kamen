@@ -70,7 +70,7 @@ export default function HomeClient() {
       </section>
 
       {/* Categories */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-subtle py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-10">
             <h2 className="font-serif text-3xl font-light text-brand-dark sm:text-4xl">Категории камня</h2>
@@ -199,7 +199,7 @@ export default function HomeClient() {
       </section>
 
       {/* Callback Form */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-subtle py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl font-light text-brand-dark sm:text-4xl">
             Бесплатный выезд замерщика
@@ -212,29 +212,29 @@ export default function HomeClient() {
               <input
                 type="text"
                 placeholder="Имя"
-                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none"
+                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none dark:bg-input-bg"
               />
               <input
                 type="tel"
                 placeholder="Телефон *"
                 required
-                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none"
+                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none dark:bg-input-bg"
               />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <input
                 type="email"
                 placeholder="E-mail"
-                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none"
+                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none dark:bg-input-bg"
               />
               <input
                 type="text"
                 placeholder="Адрес объекта *"
                 required
-                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none"
+                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none dark:bg-input-bg"
               />
             </div>
-            <label className="flex cursor-pointer items-center gap-3 rounded-md border border-dashed border-border bg-white px-4 py-3 text-sm text-muted hover:border-brand-gold transition-colors">
+            <label className="flex cursor-pointer items-center gap-3 rounded-md border border-dashed border-border bg-card px-4 py-3 text-sm text-muted hover:border-brand-gold transition-colors">
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
               </svg>

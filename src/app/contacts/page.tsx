@@ -98,11 +98,11 @@ export default function ContactsPage() {
             <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <h3 className="font-serif text-xl text-brand-dark">Обратная связь</h3>
               <div className="grid gap-4 sm:grid-cols-2">
-                <input type="text" placeholder="Имя" className="rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none" />
-                <input type="tel" placeholder="Телефон *" required className="rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none" />
+                <input type="text" placeholder="Имя" className="rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none dark:bg-input-bg" />
+                <input type="tel" placeholder="Телефон *" required className="rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none dark:bg-input-bg" />
               </div>
-              <input type="email" placeholder="E-mail" className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none" />
-              <textarea placeholder="Сообщение" rows={4} className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none" />
+              <input type="email" placeholder="E-mail" className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none dark:bg-input-bg" />
+              <textarea placeholder="Сообщение" rows={4} className="w-full rounded-md border border-border px-4 py-3 text-sm focus:border-brand-gold focus:outline-none dark:bg-input-bg" />
               <button type="submit" className="w-full rounded-md bg-brand-gold px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-dark">
                 Отправить
               </button>

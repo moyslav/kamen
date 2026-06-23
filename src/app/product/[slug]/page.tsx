@@ -42,10 +42,10 @@ export default function ProductPage() {
           <div className="space-y-4">
             <div className="relative flex h-96 items-center justify-center overflow-hidden rounded-lg bg-gray-100 sm:h-[500px]">
               <img src={product.images[photoIdx]} alt={product.name} className="h-full w-full object-cover" />
-              <button className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow hover:bg-white" onClick={() => setPhotoIdx(Math.max(0, photoIdx - 1))}>
+              <button className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-card/80 p-2 shadow hover:bg-card" onClick={() => setPhotoIdx(Math.max(0, photoIdx - 1))}>
                 <ChevronLeft className="h-5 w-5" />
               </button>
-              <button className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow hover:bg-white" onClick={() => setPhotoIdx(Math.min(product.images.length - 1, photoIdx + 1))}>
+              <button className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-card/80 p-2 shadow hover:bg-card" onClick={() => setPhotoIdx(Math.min(product.images.length - 1, photoIdx + 1))}>
                 <ChevronRight className="h-5 w-5" />
               </button>
             </div>

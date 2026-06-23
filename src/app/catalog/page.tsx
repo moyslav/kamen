@@ -77,7 +77,7 @@ export default function CatalogPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="rounded-md border border-border bg-white px-3 py-2 text-sm text-foreground focus:border-brand-gold focus:outline-none"
+              className="rounded-md border border-border bg-card px-3 py-2 text-sm text-foreground focus:border-brand-gold focus:outline-none"
             >
               <option value="popular">По популярности</option>
               <option value="price-asc">Цена ↑</option>
@@ -105,7 +105,7 @@ export default function CatalogPage() {
           {filterOpen && (
             <div className="fixed inset-0 z-50 lg:hidden">
               <div className="absolute inset-0 bg-black/40" onClick={() => setFilterOpen(false)} />
-              <div className="absolute bottom-0 left-0 right-0 max-h-[80vh] overflow-y-auto rounded-t-2xl bg-white p-6">
+              <div className="absolute bottom-0 left-0 right-0 max-h-[80vh] overflow-y-auto rounded-t-2xl bg-card p-6">
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-lg font-medium text-brand-dark">Фильтры</h3>
                   <button onClick={() => setFilterOpen(false)}>
