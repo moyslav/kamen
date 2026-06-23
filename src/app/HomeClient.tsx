@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { ChevronDown, ArrowRight, Star, Check, Warehouse, Ruler, Truck, HardHat, FileCheck, ClipboardCheck } from 'lucide-react'
+import { ArrowRight, Star, Warehouse, Ruler, Truck, HardHat, FileCheck, ClipboardCheck, ChevronDown } from 'lucide-react'
 import ProductCard from '@/components/ProductCard'
 import { categories, products, advantages, reviews } from '@/lib/data'
 
@@ -17,52 +17,60 @@ export default function HomeClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-brand-dark">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cfilter%20id%3D%22noise%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.9%22%20numOctaves%3D%224%22%20stitchTiles%3D%22stitch%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20filter%3D%22url(%23noise)%22%20opacity%3D%220.08%22%2F%3E%3C%2Fsvg%3E')] opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-transparent to-brand-dark/90" />
+      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-primary">
+        <div className="absolute inset-0 bg-stone-texture opacity-50" />
+        <div className="absolute -top-40 -right-40 h-96 w-96 animate-morph bg-gradient-to-br from-cta/20 to-transparent blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 h-96 w-96 animate-morph bg-gradient-to-tr from-white/5 to-transparent blur-3xl" style={{ animationDelay: '-4s' }} />
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
+          <div className="gold-glow mx-auto mb-8 inline-block rounded-full glass px-6 py-2">
+            <span className="text-xs font-medium tracking-wider text-cta">ПРЕМИУМ НАТУРАЛЬНЫЙ КАМЕНЬ</span>
+          </div>
           <h1 className="font-serif text-5xl font-light tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
             Камень, который
             <br />
-            <span className="text-brand-gold">вдохновляет</span>
+            <span className="text-cta">вдохновляет</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-gray-300 leading-relaxed sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
             Натуральный и искусственный камень для интерьеров и экстерьеров.
             Собственный склад, резка под размер, доставка по РФ.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/calculator"
-              className="inline-flex items-center gap-2 rounded-md bg-brand-gold px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-white hover:text-brand-dark"
+              className="gold-glow inline-flex items-center gap-2 rounded-md bg-cta px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-primary"
             >
               Получить расчёт
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/catalog"
-              className="inline-flex items-center gap-2 rounded-md border border-white/30 px-8 py-3.5 text-sm font-medium text-white transition-colors hover:bg-white hover:text-brand-dark"
+              className="inline-flex items-center gap-2 rounded-md border border-white/20 px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:border-cta hover:bg-cta/10 hover:text-cta"
             >
               Смотреть каталог
             </Link>
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-6 w-6 text-white/50" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+          <ChevronDown className="h-6 w-6 text-white/30" />
         </div>
       </section>
 
       {/* Advantages */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center">
+          <h2 className="font-serif text-3xl font-light text-primary sm:text-4xl">Почему выбирают <span className="text-cta">KAMEN</span></h2>
+          <p className="mt-3 text-sm text-muted">18 лет безупречной репутации на рынке натурального камня</p>
+        </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {advantages.map((item) => {
             const Icon = iconMap[item.icon]
             return (
-              <div key={item.title} className="group rounded-lg border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-md">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand-gold/10 text-brand-gold group-hover:bg-brand-gold group-hover:text-white transition-colors">
+              <div key={item.title} className="group glass rounded-lg p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-cta/10 text-cta transition-all duration-500 group-hover:bg-cta group-hover:text-white">
                   {Icon && <Icon className="h-6 w-6" />}
                 </div>
-                <h3 className="font-serif text-xl font-medium text-brand-dark">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed">{item.text}</p>
+                <h3 className="font-serif text-xl font-medium text-primary">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
               </div>
             )
           })}
@@ -72,9 +80,12 @@ export default function HomeClient() {
       {/* Categories */}
       <section className="bg-subtle py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="font-serif text-3xl font-light text-brand-dark sm:text-4xl">Категории камня</h2>
-            <Link href="/catalog" className="hidden text-sm font-medium text-brand-gold hover:text-brand-dark transition-colors sm:inline-flex items-center gap-1">
+          <div className="mb-10 flex items-center justify-between">
+            <div>
+              <h2 className="font-serif text-3xl font-light text-primary sm:text-4xl">Категории <span className="text-cta">камня</span></h2>
+              <p className="mt-2 text-sm text-muted">Более 200 позиций в наличии</p>
+            </div>
+            <Link href="/catalog" className="hidden items-center gap-1 text-sm font-medium text-cta transition-colors duration-300 hover:text-primary sm:inline-flex">
               Весь каталог <ArrowRight className="h-3 w-3" />
             </Link>
           </div>
@@ -85,16 +96,16 @@ export default function HomeClient() {
                 href={`/catalog/${cat.slug}`}
                 className="group relative flex h-60 items-end overflow-hidden rounded-lg bg-gray-200"
               >
-                <img src={cat.image} alt={cat.name} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <img src={cat.image} alt={cat.name} className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="relative z-10 p-6">
                   <h3 className="font-serif text-2xl font-medium text-white">{cat.name}</h3>
-                  <p className="mt-1 text-sm text-gray-300">{cat.description}</p>
+                  <p className="mt-1 text-sm text-white/60">{cat.description}</p>
                 </div>
               </Link>
             ))}
           </div>
-          <Link href="/catalog" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-gold hover:text-brand-dark transition-colors sm:hidden">
+          <Link href="/catalog" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-cta transition-colors duration-300 hover:text-primary sm:hidden">
             Весь каталог <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
@@ -102,7 +113,10 @@ export default function HomeClient() {
 
       {/* Hits */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl font-light text-brand-dark sm:text-4xl mb-10">Хиты продаж</h2>
+        <div className="mb-10">
+          <h2 className="font-serif text-3xl font-light text-primary sm:text-4xl">Хиты <span className="text-cta">продаж</span></h2>
+          <p className="mt-2 text-sm text-muted">Самые популярные позиции этого месяца</p>
+        </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {hits.map((product) => (
             <ProductCard key={product.id} product={product} />
@@ -111,15 +125,17 @@ export default function HomeClient() {
       </section>
 
       {/* About + Numbers */}
-      <section className="relative bg-brand-dark py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cfilter%20id%3D%22noise%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.9%22%20numOctaves%3D%224%22%20stitchTiles%3D%22stitch%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20filter%3D%22url(%23noise)%22%20opacity%3D%220.05%22%2F%3E%3C%2Fsvg%3E')] opacity-50" />
+      <section className="relative bg-primary py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-stone-texture opacity-30" />
+        <div className="absolute top-20 right-10 h-72 w-72 animate-morph bg-gradient-to-br from-cta/10 to-transparent blur-3xl" />
+        <div className="absolute bottom-10 left-10 h-60 w-60 animate-morph bg-gradient-to-tr from-white/5 to-transparent blur-3xl" style={{ animationDelay: '-3s' }} />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <h2 className="font-serif text-3xl font-light text-white sm:text-4xl">
-                О компании <span className="text-brand-gold">KAMEN</span>
+                О компании <span className="text-cta">KAMEN</span>
               </h2>
-              <div className="mt-6 space-y-4 text-sm text-gray-300 leading-relaxed">
+              <div className="mt-6 space-y-4 text-sm leading-relaxed text-white/60">
                 <p>
                   Мы работаем на рынке натурального камня с 2008 года. За это время мы реализовали
                   более 2 500 объектов — от городских квартир до фасадов бизнес-центров и коттеджных посёлков.
@@ -140,9 +156,9 @@ export default function HomeClient() {
                 { number: '12 000+', label: 'м² камня в наличии' },
                 { number: '2 500+', label: 'реализованных объектов' },
               ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="font-serif text-4xl font-light text-brand-gold sm:text-5xl">{stat.number}</div>
-                  <div className="mt-2 text-xs text-gray-400">{stat.label}</div>
+                <div key={stat.label} className="glass rounded-lg p-6 text-center">
+                  <div className="font-serif text-4xl font-light text-cta sm:text-5xl">{stat.number}</div>
+                  <div className="mt-2 text-xs text-white/50">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -152,28 +168,29 @@ export default function HomeClient() {
 
       {/* Reviews + Projects */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl font-light text-brand-dark sm:text-4xl mb-10">Отзывы и проекты</h2>
+        <div className="mb-10">
+          <h2 className="font-serif text-3xl font-light text-primary sm:text-4xl">Отзывы и <span className="text-cta">проекты</span></h2>
+          <p className="mt-2 text-sm text-muted">Более 2 500 реализованных объектов</p>
+        </div>
         <div className="grid gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-1 space-y-4">
+          <div className="space-y-4 lg:col-span-1">
             {reviews.map((review, i) => (
               <button
                 key={i}
                 onClick={() => setActiveReview(i)}
-                className={`w-full text-left rounded-lg border p-4 transition-all ${
+                className={`w-full rounded-lg border p-4 text-left transition-all duration-300 ${
                   activeReview === i
-                    ? 'border-brand-gold bg-brand-gold/5'
-                    : 'border-border bg-card hover:border-brand-gold/50'
+                    ? 'border-cta bg-cta/5'
+                    : 'border-border bg-card hover:border-cta/50'
                 }`}
               >
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="flex">
-                    {Array.from({ length: review.rating }).map((_, j) => (
-                      <Star key={j} className="h-3 w-3 fill-brand-gold text-brand-gold" />
-                    ))}
-                  </div>
+                <div className="mb-2 flex">
+                  {Array.from({ length: review.rating }).map((_, j) => (
+                    <Star key={j} className="h-3 w-3 fill-cta text-cta" />
+                  ))}
                 </div>
-                <h4 className="text-sm font-medium text-brand-dark">{review.name}</h4>
-                <p className="mt-1 text-xs text-muted leading-relaxed line-clamp-3">{review.text}</p>
+                <h4 className="text-sm font-medium text-primary">{review.name}</h4>
+                <p className="mt-1 line-clamp-3 text-xs leading-relaxed text-muted">{review.text}</p>
               </button>
             ))}
           </div>
@@ -191,7 +208,7 @@ export default function HomeClient() {
         <div className="mt-8 text-center">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-md border border-border px-6 py-2.5 text-sm font-medium text-brand-dark transition-colors hover:border-brand-gold hover:text-brand-gold"
+            className="inline-flex items-center gap-2 rounded-md border border-border px-6 py-2.5 text-sm font-medium text-primary transition-all duration-300 hover:border-cta hover:text-cta"
           >
             Все проекты <ArrowRight className="h-3 w-3" />
           </Link>
@@ -201,40 +218,43 @@ export default function HomeClient() {
       {/* Callback Form */}
       <section className="bg-subtle py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="font-serif text-3xl font-light text-brand-dark sm:text-4xl">
+          <div className="gold-glow mx-auto mb-6 inline-block rounded-full glass px-6 py-2">
+            <span className="text-xs font-medium tracking-wider text-cta">БЕСПЛАТНО</span>
+          </div>
+          <h2 className="font-serif text-3xl font-light text-primary sm:text-4xl">
             Бесплатный выезд замерщика
           </h2>
-          <p className="mt-4 text-sm text-muted leading-relaxed">
+          <p className="mt-4 text-sm leading-relaxed text-muted">
             Приедем в удобное время, сделаем замеры и привезём образцы камня — 0 ₽
           </p>
-          <form className="mt-8 mx-auto max-w-xl space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="mx-auto mt-8 max-w-xl space-y-4" onSubmit={(e) => e.preventDefault()}>
             <div className="grid gap-4 sm:grid-cols-2">
               <input
                 type="text"
                 placeholder="Имя"
-                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none dark:bg-input-bg"
+                className="w-full rounded-md border border-border bg-input-bg px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors duration-300 focus:border-cta focus:outline-none"
               />
               <input
                 type="tel"
                 placeholder="Телефон *"
                 required
-                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none dark:bg-input-bg"
+                className="w-full rounded-md border border-border bg-input-bg px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors duration-300 focus:border-cta focus:outline-none"
               />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <input
                 type="email"
                 placeholder="E-mail"
-                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none dark:bg-input-bg"
+                className="w-full rounded-md border border-border bg-input-bg px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors duration-300 focus:border-cta focus:outline-none"
               />
               <input
                 type="text"
                 placeholder="Адрес объекта *"
                 required
-                className="w-full rounded-md border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand-gold focus:outline-none dark:bg-input-bg"
+                className="w-full rounded-md border border-border bg-input-bg px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors duration-300 focus:border-cta focus:outline-none"
               />
             </div>
-            <label className="flex cursor-pointer items-center gap-3 rounded-md border border-dashed border-border bg-card px-4 py-3 text-sm text-muted hover:border-brand-gold transition-colors">
+            <label className="glass flex cursor-pointer items-center gap-3 rounded-md border border-dashed border-border px-4 py-3 text-sm text-muted transition-colors duration-300 hover:border-cta">
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
               </svg>
@@ -242,13 +262,13 @@ export default function HomeClient() {
             </label>
             <button
               type="submit"
-              className="w-full rounded-md bg-brand-gold px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-dark"
+              className="gold-glow w-full rounded-md bg-cta px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:bg-primary"
             >
               Записаться на замер
             </button>
             <p className="text-xs text-muted">
               Нажимая кнопку, вы соглашаетесь с{' '}
-              <a href="/policy/privacy" className="underline">политикой обработки данных</a>
+              <a href="/policy/privacy" className="underline transition-colors duration-300 hover:text-cta">политикой обработки данных</a>
             </p>
           </form>
         </div>
@@ -256,7 +276,7 @@ export default function HomeClient() {
 
       {/* SEO Text */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl space-y-4 text-sm text-muted leading-relaxed">
+        <div className="mx-auto max-w-4xl space-y-4 text-sm leading-relaxed text-muted">
           <p>
             Натуральный камень — это не просто отделочный материал. Это характер интерьера, который остаётся
             неизменным десятилетиями. В нашем каталоге представлены мрамор, гранит, кварцит, оникс и травертин —

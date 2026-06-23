@@ -16,8 +16,8 @@ export default function CategoryPage() {
   if (!category) {
     return (
       <div className="mx-auto max-w-7xl px-4 py-20 text-center">
-        <h1 className="font-serif text-3xl text-brand-dark">Категория не найдена</h1>
-        <Link href="/catalog" className="mt-4 inline-flex items-center gap-2 text-brand-gold hover:text-brand-dark">
+        <h1 className="font-serif text-3xl text-primary">Категория не найдена</h1>
+        <Link href="/catalog" className="mt-4 inline-flex items-center gap-2 text-cta transition-colors duration-300 hover:text-primary">
           Вернуться в каталог <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
@@ -29,7 +29,10 @@ export default function CategoryPage() {
       <Breadcrumbs items={[{ label: 'Каталог', href: '/catalog' }, { label: category.name }]} />
       <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mb-10">
-          <h1 className="font-serif text-3xl font-light text-brand-dark sm:text-4xl">{category.name}</h1>
+          <div className="glass mb-4 inline-block rounded-full px-4 py-1.5">
+            <span className="text-xs font-medium text-cta">{category.name.toUpperCase()}</span>
+          </div>
+          <h1 className="font-serif text-3xl font-light text-primary sm:text-4xl">{category.name}</h1>
           <p className="mt-3 max-w-2xl text-sm text-muted">{category.description}</p>
         </div>
         {categoryProducts.length === 0 ? (

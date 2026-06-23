@@ -1,0 +1,15 @@
+{
+  "mcp": {
+    "21st-dev": {
+      "type": "local",
+      "command": ["npx", "-y", "@21st-dev/magic@latest"],
+      "environment": {
+        "21ST_MAGIC_API_KEY": ""
+      },
+      "enabled": true
+    }
+  },
+  "skills": {
+    "paths": [".claude/skills"]
+  }
+}
