@@ -41,9 +41,7 @@ export default function ProductPage() {
           {/* Gallery */}
           <div className="space-y-4">
             <div className="relative flex h-96 items-center justify-center overflow-hidden rounded-lg bg-gray-100 sm:h-[500px]">
-              <svg className="h-32 w-32 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
+              <img src={product.images[photoIdx]} alt={product.name} className="h-full w-full object-cover" />
               <button className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow hover:bg-white" onClick={() => setPhotoIdx(Math.max(0, photoIdx - 1))}>
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -60,11 +58,7 @@ export default function ProductPage() {
                     i === photoIdx ? 'border-brand-gold' : 'border-transparent'
                   }`}
                 >
-                  <div className="flex h-full items-center justify-center text-gray-300">
-                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16" />
-                    </svg>
-                  </div>
+                  <img src={product.images[i]} alt="" className="h-full w-full object-cover" />
                 </button>
               ))}
             </div>
@@ -133,10 +127,8 @@ export default function ProductPage() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {related.map((p) => (
                 <Link key={p.id} href={`/product/${p.slug}`} className="group rounded-lg border border-border bg-card p-4 transition-all hover:-translate-y-1 hover:shadow-md">
-                  <div className="aspect-square rounded-md bg-gray-100 flex items-center justify-center">
-                    <svg className="h-12 w-12 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16" />
-                    </svg>
+                  <div className="aspect-square rounded-md bg-gray-100 overflow-hidden">
+                    <img src={p.images[0]} alt={p.name} className="h-full w-full object-cover" />
                   </div>
                   <h3 className="mt-3 font-serif text-base font-medium text-brand-dark group-hover:text-brand-gold transition-colors">{p.name}</h3>
                   <p className="mt-1 text-sm text-brand-gold">{p.price}</p>

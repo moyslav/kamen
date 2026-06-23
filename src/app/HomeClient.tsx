@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ChevronDown, ArrowRight, Star, Check, Warehouse, Ruler, Truck, HardHat, FileCheck, ClipboardCheck } from 'lucide-react'
 import ProductCard from '@/components/ProductCard'
 import { categories, products, advantages, reviews } from '@/lib/data'
@@ -86,11 +85,7 @@ export default function HomeClient() {
                 href={`/catalog/${cat.slug}`}
                 className="group relative flex h-60 items-end overflow-hidden rounded-lg bg-gray-200"
               >
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                  <svg className="h-20 w-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
+                <img src={cat.image} alt={cat.name} className="absolute inset-0 h-full w-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="relative z-10 p-6">
                   <h3 className="font-serif text-2xl font-medium text-white">{cat.name}</h3>
@@ -184,11 +179,7 @@ export default function HomeClient() {
           </div>
           <div className="lg:col-span-2">
             <div className="relative h-80 overflow-hidden rounded-lg bg-gray-100 sm:h-96 lg:h-full">
-              <div className="flex h-full items-center justify-center text-gray-400">
-                <svg className="h-24 w-24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
+              <img src={`/images/services/installation.svg`} alt="Проект" className="h-full w-full object-cover" />
               {reviews[activeReview] && (
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                   <p className="text-sm text-white/80">{reviews[activeReview].project}</p>
